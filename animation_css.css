@@ -1,0 +1,347 @@
+
+.btn {
+    background-color:  rgba(1, 28, 55, 0);/*0 à la fin pour l'opacité que l'on changera avec le hover en transition*/
+    color:#15DEA5;
+    font-size: 3rem;
+    text-align: center;
+    margin: auto;
+    width: 500px;
+    cursor: pointer;
+    padding: 1.85rem 3rem;
+    border-radius: 10rem;
+    transform: scale(1);
+    border:2px solid black;
+}
+.btn:hover{
+    transition: transform 450ms, background-color 300ms 150ms;
+    /*dissocie les transitions avec un réglage time pour chaques anim' 
+    300 est la durée de l'anim 150 est le délais avant son déclenchement*/
+    transform: scale(1.1);                                      
+    background-color:  rgba(1, 28, 55, 1);
+ }
+
+
+.form {
+       
+        border: 2px solid #011c37;
+        border-radius: 100rem;
+        color: #6300a0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.5rem;
+        outline: none;
+        padding: .5rem 1.5rem;
+        width: 500px; 
+        background-color: #bc8dda;  
+    }
+input{
+    border: 0px solid #011c37;
+    border-radius: 2px; 
+}
+
+input:focus {
+    border: 3px solid #6300a0;
+}
+
+/*s'active si les données ne sont pas correctes mais que le focus n'est plus sur l'input*/
+
+input:not(:focus):invalid {
+     transition: background-color 1000ms; /*transition de couleur vers le rouge plus douce*/
+     background: red; 
+     border: 2px solid rgb(114, 6, 6);
+     color: white;
+     animation: headshake 100ms;
+     animation-iteration-count: 3;
+     /*fera appel à la keyframe headshake 3 fois*/
+ }
+
+@keyframes headshake{
+    25%{
+        transform: translateX(2%);
+    }
+    75%{
+        transform: translateX(-2%);
+    }
+}
+
+ .btn2 {
+    background: #15DEA5;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border-radius: 10rem;
+    width: 300px;
+    text-align: center;
+}
+
+/*transition avec transform me permet de retourner à l'état précédent avec le même délai de transition*/
+
+ .ball {
+    width: 100px;
+    height: 100px;
+    background: blue;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: transform 2000ms;    
+}
+
+/*selectionne la balle pour modifier ses valeurs*/
+
+.btn2:hover ~ .ball{
+    transition: 2000ms;
+    transform: scale(1.2);
+} 
+
+.btn3 {
+    background: #37de15;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border-radius: 10rem;
+    width: 300px;
+    text-align: center;
+}
+
+.cube{
+    width: 100px;
+    height: 100px;
+    background: blue;
+    margin-bottom: 1rem;
+    margin-left: 20px;
+    transition: margin-left 2000ms;
+}
+
+.btn3:active ~ .cube{
+    transition: 2000ms linear; 
+    /*linear indique que la vitesse de déplacement est linéaire et ne subit pas
+    d'accélération ou de ralentissement il existe aussi :
+    -ease (par défaut)
+    -ease-in-out
+    -ease-in
+    -ease-out*/
+    margin-left: 500px;
+    transform: scale(3,0.5); 
+    /* 3 représente l'axe X et 0.5 le Y, cela parmet par exemple de l'étirer*/
+} 
+
+.btn4 {
+    background: #de1530;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border-radius: 10rem;
+    width: 300px;
+    text-align: center;
+}
+
+.translateCube{
+    width: 100px;
+    height: 100px;
+    background: blue;
+    margin-bottom: 1rem;
+    margin-left: 20px;
+    transition: transform 330ms ease-in-out;
+}
+
+.btn4:hover ~ .translateCube{
+    transform: translate(150px, +7vh) rotate(-1turn);
+    /* vas bouger l'objet sélectionné de 150px en X et 7vh en Y
+    rotate va le faire tourner, je peux écrire la valeur de rotate en turn ou en deg 
+    pour degrés. Si je veux utiliser plusieurs animations je les mets à la suite dans mon transform
+    Attention mon navigateur lit de droite à gauche donc rotate avant translate*/
+}
+
+.btn5 {
+    background: #de15c3;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border-radius: 10rem;
+    width: 300px;
+    text-align: center;
+}
+
+.rect{
+    width: 100px;
+    height: 300px;
+    background: blue;
+    margin-bottom: 1rem;
+    margin-left: 150px;
+    transition: transform 330ms ease-in-out;
+}
+
+.btn5:hover ~ .rect{
+    transition: transform 330ms ease-in-out;
+    transform: skew(45deg,40deg);
+    /* skew est pour incliné, la première valeur est le X et la deuxième le Y
+    je peux dissocier les deux pour manipuler qu'une seule valeur en notant
+    skewX(45deg) ou skewY(45deg)*/
+}
+
+.btn6 {
+    background: #de8e15;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border-radius: 10rem;
+    width: 300px;
+    text-align: center;
+}
+
+.zdim{
+    width: 100px;
+    height: 100px;
+    background: blue;
+    margin-bottom: 1rem;
+    margin-left: 150px;
+    transition: transform 330ms ease-in-out;
+}
+
+.btn6:hover ~ .zdim{
+    transition: transform 330ms ease-in-out;
+    transform: perspective(75px) rotateX(45deg);
+    /* perspective gère l'effet 3D plus les px sont faibles, plus l'objet parait près*/
+}
+
+.btn7 {
+    background: #ca0e0e;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border-radius: 10rem;
+    width: 300px;
+    text-align: center;
+}
+
+.progress{
+    width: 500px;
+    height: 30px;
+    margin-bottom: 1rem;
+    margin-left: 150px;
+    border: 2px solid black;
+    transform-origin: 0% 50%;
+    /* permet de modifier le point d'ancrage et ainsi de commencer l'animation sur la droite, gauche, haut, bas
+    ici 0 correspond à gauche et 50 à droite, on peut utiliser directement les termes right, left, top , bottom
+    ex : transform-origin: left;*/
+    transform: scaleX(0);   
+    background-color: #011c37;
+}
+
+.btn7:hover ~ .progress{
+    transition: transform 1000ms;
+    transform: scaleX(1);
+}
+
+.btn8{
+    background: #6ed161;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border-radius: 10rem;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.btn8::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;  
+    left: 0;
+    background: radial-gradient(#6ed161,#15b400) ;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 250ms; 
+    border-radius: 10rem;
+}
+
+.btn8:hover::after{
+  opacity: 1;
+}
+
+.btn9{
+    background: #6ed161;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border-radius: 10rem;
+    width: 300px;
+    text-align: center;
+}
+
+.btn9:hover{
+    transition: filter 400ms;
+    filter: brightness(80%);
+}
+
+.btn10{
+    font-size: 2rem;
+}
+
+.progressKeyframe{
+    width: 500px;
+    height: 30px;
+    margin-bottom: 1rem;
+    margin-left: 150px;
+    border: 2px solid black;
+    transform-origin: 0% 50%;
+    transform: scaleX(0);   
+    background-color: #011c37;
+    animation: progress-bar 1000ms;
+    animation-delay: 1000ms;
+    /*permet d'intégrer un délai avant déclenchement animation
+    sinon se déclanche au chargement de la page*/
+    animation-fill-mode: both;
+    /* une fois mon animation terminé me permet de garder mon affichage à l'écran*/
+}
+
+/*.btn10:active ~ .progressKeyframe{
+    animation: progress-bar 1000ms;
+     nom animation suivit du temps
+}*/
+
+@keyframes progress-bar {
+    0% {
+        transform: scaleX(0);
+    }
+    17% {
+        transform: scaleX(.18);
+    }
+    24% {
+        transform: scaleX(.4);
+    }
+    46% {
+        transform: scaleX(.81);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.bigCube{
+    width: 150px;
+    height: 150px;
+    background: black;
+    animation: tourne 5000ms infinite linear;
+    margin-left: 200px;
+}
+
+.smallCube{
+    height: 100px;
+    width: 100px;
+    background: red;
+    animation: tourne 5000ms infinite linear;
+    animation-direction: reverse;
+}
+
+@keyframes tourne{
+    50% {
+        transform :rotate(-0.5turn);
+    }
+    100%{
+        transform :rotate(-1turn);
+    }
+}
